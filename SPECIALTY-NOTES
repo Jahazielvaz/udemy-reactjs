@@ -1,0 +1,48 @@
+RULES FOR DYNAMIC CONTENT
+
+DYNAMIC CONTENT LVL 1(Embedding JS):
+  HOW TO EMBED JS CODE INSIDE A JSX ELEMENT: Inside these { }
+    NOTE: You can only execute short simple single line expressions using this method. You wouldn't be able to define a JS class or anything of the sort, using this method.
+          You can use this method for simple calculations, or to call functions here.
+
+
+DYNAMIC CONTENT LVL 2(Passing Props):
+  MAKING OUR ACTUAL COMPONENT MORE DYNAMIC (PROPS): First know that you can define object literals within the rendered components. Example: <MyCreatedComponent name="George" age="50" /> <MyCreatedComponent name="Paul" age="30" />
+  STEP 1(Passing in props, correctly): You first pass in props inside the root of the component, meaning where the actual component content is, so not where you're choosing to render it. Example: const MyComponent = (props) => {} NOTE: You name it props as a convention.
+  STEP 2(Rendering your props correctly): Within the same root component where it actually got created, you can choose where within your jsx elements you want to render the props that you defined where the component got rendered, using dot notation. Example: const MyComponent = (props) => {<h1>My name is {props.name} and I'm {props.age} years old</h1>}
+
+    QUICK OVERVIEW
+      ROOT COMPONENT: You declare that you'll be using props, and you also select where in the JSX elements the props are actually going to render
+      PLACE WHERE COMPONENT IS BEING RENDERED: You define the actual content of the props.
+
+DYNAMIC CONTENT LVL 3 (Understanding Children Property):
+  the goal is to be able to render content wrapper around your jsx elements, which exists inside of the rendered component, and not where the component was actually created.
+  ACCESSING THE CONTENT DESCRIBED ABOVE: You simply need to pass in props where the root component is, as you would for any defined component, but you instead use dot notation to pass in the reserved prop called children. Example: props.children
+  NOTE: You can nest many things within the rendered components, not just text. You could nest complex code, such as other components, calculations, etc.
+
+
+DYNAMIC CONTENT LVL 4 (State): First difference between props and state, is that with props you get the information from outside of the component, and you change it from outside. With state you get the information from inside, and you also change it from inside of the component.
+  State is a special property that can only be defined in a component that extends.
+  NOTE: Once again remember that state is managed from within the component.
+  NOTE: You can set up any kind of data you want within state.
+  SETTING UP STATE: state = { content here }
+
+  CALLING STATE(This): First understand that the this keyword refers to the component where you're referring this from.
+    You still name where you want the property to go, but instead of using the external props, you use this.state and then whatever notation you need to access the specific information you want
+      EXAMPLE:
+        <Person name={this.state.persons[0]} />
+
+  NOTE: Big difference between state and props is that state can be changed, and props can't be changed. Make sure you use state sparingly
+
+  MAIN THING TO KEEP IN MIND: State and props are the only ways to cause react to re-render content to the dom. STATE IS FOR MAKING CHANGES, That's it's main purpose.
+
+  NOTE: You can pass the state down to a functional components, but these then can't directly edit it.
+
+-----------------------------------------------------------------------------------------------------
+HANDLING EVENTS: We add onClick to the element you want to trigger the event
+  NOTE: In jsx make sure you use cammelcase when declaring onClick, instead of all lower case.
+  We then assign as a value the code we want to execute when the click happens.
+
+  ASSIGNING METHODS AS EVENT HANDLERS: Note that the convention you should use for naming a method which you won't execute directly but rather you're going to assign as an event handler is the intended action followed by the word handler, in camelcase. Example: switchNameHandler = () => {}
+
+  EXECUTING AN EVENT HANDLER: You would call the method you prepared which contains the changes within the onClick property, by including this.methodName NOTE: DO NOT ADD THE PARENTHESIS, IF YOU DO, IT'S GOING TO EXECUTE THE METHOD IMMEDIATELY.
