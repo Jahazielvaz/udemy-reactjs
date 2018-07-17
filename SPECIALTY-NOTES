@@ -46,3 +46,14 @@ HANDLING EVENTS: We add onClick to the element you want to trigger the event
   ASSIGNING METHODS AS EVENT HANDLERS: Note that the convention you should use for naming a method which you won't execute directly but rather you're going to assign as an event handler is the intended action followed by the word handler, in camelcase. Example: switchNameHandler = () => {}
 
   EXECUTING AN EVENT HANDLER: You would call the method you prepared which contains the changes within the onClick property, by including this.methodName NOTE: DO NOT ADD THE PARENTHESIS, IF YOU DO, IT'S GOING TO EXECUTE THE METHOD IMMEDIATELY.
+
+  CALLING AN EVENT FROM A CLASS COMPONENT TO A STATELESS COMPONENT: Remember that we can't call handler methods from stateless components so this is where this comes in. The solution is we can pass a reference to the handler methods as props in the desired stateless component. This is a very common pattern.
+    First you have to pass a name property and call it whatever you want, and within it, use the keyword "this" followed by the name of the handler that you want to access.
+      EXAMPLE:
+        <Person
+          propName={this.handlerName} />
+
+          NOTE: When you use "this" you're using it as a reference to the property where you added it, which in this case it would be the "propName" property.
+          NOTE: The reference is passed in the property that belongs to the stateful component, not the stateless one.
+
+    Now within your stateless component
