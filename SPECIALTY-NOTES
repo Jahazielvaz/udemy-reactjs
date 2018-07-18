@@ -56,4 +56,62 @@ HANDLING EVENTS: We add onClick to the element you want to trigger the event
           NOTE: When you use "this" you're using it as a reference to the property where you added it, which in this case it would be the "propName" property.
           NOTE: The reference is passed in the property that belongs to the stateful component, not the stateless one.
 
-    Now within your stateless component
+    Now within your stateless component component simply reference it by using {props.propName}
+
+--------------------------------------------------------------------------------------------------------
+PASSING A PROPERTY WITHIN A METHOD: Note that instead of hard coding the property values inside your setState method, you can add a parameter to your method, and then pass in that parameter as the chosen property value.
+  EXAMPLE:
+    switchNameHandler = (newName) => {
+      this.setState({
+        persons: [
+          {name: newName, age: 23},
+          {name: "Manny", age: 39},
+          {name: "Stephanie", age: 27}
+        ]
+      })
+    }
+
+    NOTE: Wherever you're defining your properties, you have to bind the handler to the 'this' inside where the method is defined.
+      EXAMPLE:
+        switchNameHandler = (newName) => {
+          this.setState({
+            persons: [
+              {name: newName, age: 23},
+              {name: "Manny", age: 39},
+              {name: "Stephanie", age: 27}
+            ]
+          })
+        }
+
+        render() {
+          return(
+          <div>
+            <button onClick={this.switchNameHandler.bind(this)}></button>
+          </div>
+          )
+        }
+
+        NOTE: this.methodName.bind(this) the purpose of using this is to render dynamic content created within a state changer.
+
+
+CHANGING DATA TO THE VALUE OF THE USER INPUT(2 Way binding):
+  First step, is we need to use the onChange event. We'll use this event directly in the input form field we create which could be created inside of your stateless component.
+    EXAMPLE:
+      <input type='text' onChange={} /> NOTE: onChange will be fired whenever the value of this input is changed. Here is where we'll execute a method that is passed down from your stateful file.
+
+  Second Step: Now we'll go to our stateful component where we can create event handlers, and create a handler with an 'event' parameter, which is how we'll be able to render the event created in our stateless component, within our stateful component.
+
+  TARGET: The target should be the input unto which the user types, and it's accessed via dot notation via the event parameter.
+  VALUE: After we tell it to target the input field, we have to tell it that we want the value that is typed within it.
+    EXAMPLE:
+      myHandler = (event) => {
+        this.setState({
+          persons: [
+            {name: 'Max', age: 23},
+            {name: event.target.value, age: 20},
+            {name: 'Stephanie', age: 32}
+          ]
+        })
+      }
+
+      So in this example above, on the second object, name will get the value that is typed by the user.

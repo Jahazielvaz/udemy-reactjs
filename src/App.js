@@ -13,17 +13,17 @@ class App extends Component {
   state = {
     persons: [
       {name: 'Max', age: 23},
-      {name: 'Pablo', age: 32},
+      {name: 'Paul', age: 13},
       {name: 'Vincent', age: 'unknown'}
     ]
   }
 
-  switchNameHandler = () => {
+  switchNameHandler = (newName) => {
     this.setState({
       persons: [
-        {name: 'Pietro', age: 34},
+        {name: newName, age: 34},
         {name: 'Julianne', age: 23},
-        {name: 'Franz', age: 2700}
+        {name: 'Vincent', age: 1000}
       ]
     })
   };
@@ -31,9 +31,9 @@ class App extends Component {
   nameChangedHandler = (event) => {
     this.setState({
       persons: [
-        {name: 'Pietro', age: 34},
-        {name: 'Julianne', age: 23},
-        {name: 'Vicious', age: 2700}
+        {name: event.target.value, age: 43000},
+        {name: 'Julianne', age: "%"},
+        {name: 'Vicious', age: 5009}
       ]
     })
   }
@@ -41,20 +41,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.switchNameHandler}>Switch Name</button>
+        {/* NOTICE: The this inside of the bind refers to the content inside the this which belongs to the method called switchNameHandler */}
+        <button onClick={this.switchNameHandler.bind(this, 'Pietro')}>Switch Name</button>
 
         <Person
           name={this.state.persons[0].name}
-          age={this.state.persons[0].age}/>
+          age={this.state.persons[0].age}
+          click={this.switchNameHandler.bind(this, 'Artamiel')}
+          changed={this.nameChangedHandler}/>
 
         <Person
           name={this.state.persons[2].name}
-          age={this.state.persons[2].age}
-          click={this.switchNameHandler}><b>So you're wondering how I've gotten to this age. Vampires are a lowly form of demon. I'm way above that!</b></Person>
+          age={this.state.persons[2].age}><b>Transcend Beyond!</b></Person>
 
         <Person
           name={this.state.persons[1].name}
-          age={this.state.persons[1].age}  />
+          age={this.state.persons[1].age} />
 
         <Person
           name="Karla"
