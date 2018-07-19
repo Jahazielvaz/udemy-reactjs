@@ -115,3 +115,5 @@ CHANGING DATA TO THE VALUE OF THE USER INPUT(2 Way binding):
       }
 
       So in this example above, on the second object, name will get the value that is typed by the user.
+
+      the 2 way binding comes in when you add value=
