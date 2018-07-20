@@ -1,9 +1,12 @@
 import React from 'react';
+import '../App.css'
 
-const UserOutput = () => {
+const UserOutput = (props) => {
   return(
-    <div>
-      <h2>Hello World</h2>
+    <div id="output-container">
+      <h2>Hello World {props.user}</h2>
+
+      <h3>Goodbye World</h3>
     </div>
   )
 }

@@ -7,14 +7,24 @@ import UserInput from './userInput/UserInput';
 import UserOutput from './userOutput/UserOutput';
 
 class App extends Component {
+  state = {
+    username : 'Paul'
+  }
+
+  nameChangeHandler = () => {
+    setState({
+      username: 'Just Kidding, Im Vincent!'
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <br />
         <UserInput />
         <br /><hr />
-        <UserOutput />
-        <UserOutput />
+        <UserOutput user={"This is Mike"} />
+        <UserOutput onClick({this.nameChangeHandler}) user={this.state.username} />
         <UserOutput />
       </div>
     );
