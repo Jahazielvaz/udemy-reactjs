@@ -39,10 +39,18 @@ class App extends Component {
   }
 
   render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    }
+
     return (
       <div className="App">
         {/* NOTICE: The this inside of the bind refers to the content inside the this which belongs to the method called switchNameHandler */}
-        <button onClick={this.switchNameHandler.bind(this, 'Pietro')}>Switch Name</button>
+        <button style={style} onClick={this.switchNameHandler.bind(this, 'Pietro')}>Switch Name</button>
 
         <Person
           name={this.state.persons[0].name}
