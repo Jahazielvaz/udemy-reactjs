@@ -6,7 +6,7 @@ const UserOutput = (props) => {
     <div id="output-container">
       <h2>Hello World {props.user}</h2>
 
-      <h3>Goodbye World</h3>
+      <h3>Goodbye World {props.name}</h3>
     </div>
   )
 }

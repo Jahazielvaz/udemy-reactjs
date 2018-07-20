@@ -6,26 +6,32 @@ import './App.css';
 import UserInput from './userInput/UserInput';
 import UserOutput from './userOutput/UserOutput';
 
+//Sample Component Section
+import SampleComponent from './sample-component/SampleComponent';
+
+//Sample Stateful Component
+import SampleStatefulComponent from './sample-stateful-component/SampleStatefulComponent';
+
 class App extends Component {
   state = {
-    username : 'Paul'
+    message: "Hello I'm State"
   }
 
-  nameChangeHandler = () => {
-    setState({
-      username: 'Just Kidding, Im Vincent!'
+  messageChangeHandler = () => {
+    this.setState({
+      message: "Hello I'm State Change"
     })
   }
+
+
 
   render() {
     return (
       <div className="App">
-        <br />
-        <UserInput />
-        <br /><hr />
-        <UserOutput user={"This is Mike"} />
-        <UserOutput onClick({this.nameChangeHandler}) user={this.state.username} />
-        <UserOutput />
+        <SampleComponent intro={"I'm a prop"} />
+        <SampleStatefulComponent />
+        <SampleComponent myCurrentState={this.state.message} />
+        <SampleComponent myNewState={this.messageChangeHandler} />
       </div>
     );
   }
