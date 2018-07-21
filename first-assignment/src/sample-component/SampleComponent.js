@@ -6,7 +6,8 @@ const SampleComponent = (props) => {
     <div id="sample-comp-container">
       <h1> {props.intro} </h1>
       <h2>{props.myCurrentState}</h2>
-      <h3>{props.myNewState}</h3>
+      <h3>{props.children}</h3>
+      <h4 onClick={props.newPropState}>try it</h4>
     </div>
   )
 }

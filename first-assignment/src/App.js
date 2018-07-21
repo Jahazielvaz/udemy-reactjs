@@ -23,6 +23,12 @@ class App extends Component {
     })
   }
 
+  newPropHandler = () => {
+    this.setState({
+      message: "Hello I'm a State Change Prop"
+    })
+  }
+
 
 
   render() {
@@ -31,7 +37,8 @@ class App extends Component {
         <SampleComponent intro={"I'm a prop"} />
         <SampleStatefulComponent />
         <SampleComponent myCurrentState={this.state.message} />
-        <SampleComponent myNewState={this.messageChangeHandler} />
+        <SampleComponent newPropState={this.newPropHandler} />
+        <button onClick={this.messageChangeHandler}>click here</button>
       </div>
     );
   }

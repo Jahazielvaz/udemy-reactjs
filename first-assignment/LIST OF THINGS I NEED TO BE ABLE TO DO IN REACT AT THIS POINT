@@ -5,12 +5,23 @@ LIST:
 X 2-CREATE A STATEFUL COMPONENT *
 - 3-CREATE AND PASS PROPS SUCCESSFULLY *
 - 4-CREATE AND PASS STATE SUCCESSFULLY *
-X -CREATE A STATE CHANGE (By building a method), AND RENDER IT PROPERLY
+X 5-CREATE A STATE CHANGE (By building a method), AND RENDER IT PROPERLY *
 6-CREATE A STATE CHANGE, AND RENDER IT AS PROPS TO THE STATELESS COMPONENT
 7-CREATE DYNAMIC CONTENT IN STATE, AND RENDER IT PROPERLY.
-8-PASS AN EVENT HANDLER AND RENDER IT PROPERLY
-9-PASS AN EVENT HANDLER AND RENDER A METHOD PROPERLY
+- 8-PASS AN EVENT HANDLER AND RENDER IT PROPERLY *
+X 9-PASS AN EVENT HANDLER AND RENDER A METHOD PROPERLY *
 10-FIND OUT EXACTLY WHEN TO BIND AND WHEN NOT TO BIND, AND WHY YOU HAVE TO BIND, AND USE IT PROPERLY
 11-CREATE A STATE CHANGE THAT USES USER INPUT AS THE VALUE OF THE STATE, AND DISPLAY IT PROPERLY.
 12-ADD TWO WAY BINDING
 13-USE INLINE AS WELL AS COMPONENT BASED CSS TO STYLE YOUR COMPONENTS.
+14-ADD EVENT HANDLERS OR A WAY TO EXECUTE EVENT CHANGES IN CUSTOM COMPONENTS.
+15-PASS PROPS.CHILD IN ORDER TO DISPLAY THE CONTENT INSIDE A RENDERED CUSTOM COMPONENT.
+
+
+NEW DISCOVERIES
+5-Creating a state change, and rendering it properly:
+  -I have not been able to use the event changed without using the events. I'm starting to think that there is no other way, because it appears that not even in the tutorial do they show a way to do it, without a handler.
+
+9-Pass an event handler and render a method properly:
+  -For some reason the onClick, and I'm guessing most eventHandlers don't work when used on other rendered components, but it did work on a button.
+    Stack overflow says that you can only provide onClick and other events on DOM elements, and not on other components or elements.
