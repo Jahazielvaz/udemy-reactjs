@@ -29,6 +29,12 @@ class App extends Component {
     })
   }
 
+  dynamicContentHandler = (newMessage) => {
+    this.setState({
+      message: newMessage
+    })
+  }
+
 
 
   render() {
@@ -38,6 +44,7 @@ class App extends Component {
         <SampleStatefulComponent />
         <SampleComponent myCurrentState={this.state.message} />
         <SampleComponent newPropState={this.newPropHandler} />
+        <SampleComponent myContent={this.dynamicContentHander.bind(this, 'Look! Im new Content! Yohoo!')} />
         <button onClick={this.messageChangeHandler}>click here</button>
       </div>
     );
