@@ -6,8 +6,8 @@ X 2-CREATE A STATEFUL COMPONENT *
 - 3-CREATE AND PASS PROPS SUCCESSFULLY *
 - 4-CREATE AND PASS STATE SUCCESSFULLY *
 X 5-CREATE A STATE CHANGE (By building a method), AND RENDER IT PROPERLY *
-6-CREATE A STATE CHANGE, AND RENDER IT AS PROPS TO THE STATELESS COMPONENT
-7-CREATE DYNAMIC CONTENT IN STATE, AND RENDER IT PROPERLY.
+- 6-CREATE A STATE CHANGE, AND RENDER IT AS PROPS TO THE STATELESS COMPONENT *
+X 7-CREATE DYNAMIC CONTENT IN STATE, AND RENDER IT PROPERLY. *
 - 8-PASS AN EVENT HANDLER AND RENDER IT PROPERLY *
 X 9-PASS AN EVENT HANDLER AND RENDER A METHOD PROPERLY *
 10-FIND OUT EXACTLY WHEN TO BIND AND WHEN NOT TO BIND, AND WHY YOU HAVE TO BIND, AND USE IT PROPERLY
@@ -25,3 +25,7 @@ NEW DISCOVERIES
 9-Pass an event handler and render a method properly:
   -For some reason the onClick, and I'm guessing most eventHandlers don't work when used on other rendered components, but it did work on a button.
     Stack overflow says that you can only provide onClick and other events on DOM elements, and not on other components or elements.
+
+10-No matter where you make the changes, there could only be one state at a time, unless you specifically add another state in the state section. This is important because no matter how many state changes you assign, they're all going to happen only in the area when you used this.state.content.
+
+For some reason buttons and such have to be below the state you wish to change. These are the buttons that are actually responsible for changing state. 
